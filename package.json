@@ -1,0 +1,24 @@
+{
+  "name": "ajax-todos",
+  "version": "1.0.0",
+  "description": "A simple TODO application for the AJAX Workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raduGaspar/ajax-todos.git"
+  },
+  "keywords": [
+    "ajax",
+    "XMLHttpRequest",
+    "workshop"
+  ],
+  "author": "Radu B. Gaspar <radu.bogdan.gaspar@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raduGaspar/ajax-todos/issues"
+  },
+  "homepage": "https://github.com/raduGaspar/ajax-todos#readme"
+}

@@ -1,0 +1,64 @@
+html, body {
+  background-color: #6d695c;
+  background-image:
+  repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+  linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+  background-size: 70px 120px;
+}
+.container {
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+}
+.left {
+  float: left;
+  width: 50%;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.list {
+  border: 1px solid #aa5;
+  border-width: 0 1px 1px 0;
+}
+.list label {
+  display: block;
+}
+.list li {
+  position: relative;
+  padding: 5px;
+  background: #cd5;
+  border: 1px solid #aa5;
+  border-width: 1px 0 0 1px;
+}
+.list li:hover {
+  background: #f5f5dc;
+}
+.list li.fav:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -1px;
+  right: 5px;
+  content: '';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid rgba(0, 0, 0, .40);
+}
+.complete li {
+  text-decoration: line-through;
+  background: #cdc;
+}
+
+/* Generic */
+.center { text-align: center; }
+.bold { font-weight: bold; }
+h3 { color: #fff; margin: 20px 0; }
