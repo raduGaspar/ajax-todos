@@ -17,10 +17,10 @@
       }
     };
 
-  client.onreadystatechange = handler;
-  client.open("GET", lists);
-  client.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-  client.send();
+  // client.onreadystatechange = handler;
+  // client.open("GET", lists);
+  // client.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  // client.send();
   // client.open("POST", lists);
   // client.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
   // client.send(JSON.stringify({name: 'Food'}));
@@ -47,3 +47,8 @@ function ajax(type, url, data, cb) {
 
   return xhr; // not a bad idea to also return the request object
 }
+
+// usage:
+// ajax('GET', 'https://todos-radugaspar.c9.io/lists', null, function(data) {
+//   console.log(data);
+// });
