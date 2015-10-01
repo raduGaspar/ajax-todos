@@ -26,21 +26,24 @@ html, body {
 }
 
 .list {
-  border: 1px solid #aa5;
-  border-width: 0 1px 1px 0;
-}
-.list label {
-  display: block;
+  border-color: #aa5;
+  margin: 0;
 }
 .list li {
   position: relative;
-  padding: 5px;
   background: #cd5;
-  border: 1px solid #aa5;
-  border-width: 1px 0 0 1px;
+  border-color: #aa5;
+  padding: 5px;
+  overflow: hidden;
+}
+.list li button {
+  display: none;
 }
 .list li:hover {
   background: #f5f5dc;
+}
+.list li:hover button {
+  display: block;
 }
 .list li.fav:after {
   position: absolute;
@@ -57,6 +60,14 @@ html, body {
   text-decoration: line-through;
   background: #cdc;
 }
+
+.complete-todos label {
+  display: block;
+  text-decoration: strike;
+}
+
+.view { display: none; }
+.view.current { display: block; }
 
 /* Generic */
 .center { text-align: center; }

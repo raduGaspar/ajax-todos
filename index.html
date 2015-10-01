@@ -2,40 +2,124 @@
 <html>
 <head>
   <title>AJAX TODOs</title>
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+  <!-- TODO LISTS TEMPLATE -->
+  <script id="list-template" type="text/html">
+    {{name}}
+    <button
+      class="pull-right btn btn-xs btn-danger"
+      onclick="todos.todoLists.del(this, '{{uid}}')">delete
+    </button>
+    <button
+      class="pull-right btn btn-xs"
+      onclick="todos.todoLists.edit(this, '{{uid}}', '{{name}}')">edit
+    </button>
+  </script>
+  <!-- EDIT LIST TEMPLATE -->
+  <script id="edit-list-template" type="text/html">
+    <input
+      class="form-control"
+      value="{{name}}"
+      onkeypress="todos.todoLists.update(event, this, '{{uid}}')">
+  </script>
+  <!-- TODOs TEMPLATE -->
+  <script id="todo-template" type="text/html">
+    <label class='col-xs-6'>
+      <input type="checkbox" {{status}}
+        onchange="todos.complete.change(this, '{{uid}}')")
+      >
+      {{name}}
+    </label>
+    <button
+      class="pull-right btn btn-xs btn-danger"
+      onclick="todos.todo.del(this, '{{uid}}')">delete
+    </button>
+    <button
+      class="pull-right btn btn-xs"
+      onclick="todos.todo.edit(this, '{{uid}}', '{{name}}')">edit
+    </button>
+  </script>
+  <!-- TODOs EDIT TEMPLATE -->
+  <script id="edit-todo-template" type="text/html">
+    <input
+      class="form-control"
+      value="{{name}}"
+      onkeypress="todos.todo.update(event, this, '{{uid}}')">
+  </script>
+  <!-- COMPLETE TODO TEMPLATE -->
+  <script id="complete-todo-template" type="text/html">
+    <label>{{name}}</label>
+  </script>
   <div class="container">
-    <div class="left noselect">
-      <h3 class="center bold">Todo List</h3>
-      <ul class="list todos">
-        <li>
-          <label>
-            <input type="checkbox">
-            My todo
-          </label>
-        </li>
-        <li class="fav">
-          <label>
-            <input type="checkbox">
-            My favourite todo
-          </label>
-        </li>
-      </ul>
+    <div class="view view-list">
+      <h3 class="center bold">Todo Lists</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <input type="text" class="new-todo-list form-control"
+            onkeypress="todos.todoLists.create(event, this)"
+            placeholder="New todo list name"
+            autofocus>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group list todos todos-list">
+            <li class="list-group-item" data-uid="cevaa123123">List Name</li>
+            <li class="list-group-item" data-uid="12313dsq">Another List Name</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="left noselect">
-      <h3 class="center bold">Complete Todo List</h3>
-      <ul class="list complete">
-        <li>
-          <label>
-            <input type="checkbox" checked>
-            Complete Todo
-          </label>
-        </li>
-      </ul>
-    </div>
+    <div class="view view-todos">
+      <h3 class="center bold">TODOs / Recently Complete</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" onclick="todos.goBack()">Back</button>
+            </span>
+            <input type="text" class="new-todo form-control"
+              placeholder="New todo"
+              onkeypress="todos.todo.create(event, this)">
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6 noselect">
+              <ul class="list-group list todos incomplete-todos">
+                <li class="list-group-item">
+                  <label>
+                    <input type="checkbox">
+                    My todo
+                  </label>
+                </li>
+                <li class="list-group-item fav">
+                  <label>
+                    <input type="checkbox">
+                    My favourite todo
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-6 noselect">
+              <ul class="list-group list complete complete-todos">
+                <li class="list-group-item">
+                  <label>
+                    <input type="checkbox" checked>
+                    Complete Todo
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
+  
+  <script type="text/javascript" src="js/utils.js"></script>
+  <script type="text/javascript" src="js/view-mngr.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>
